@@ -3,33 +3,41 @@ import {Text, StyleSheet, View} from 'react-native';
 
 const BoxScreen = () => {
   return (
-    <View style={styles.viewStyle}>
-      <Text style={styles.textOneStyle}>Child #1</Text>
-      <Text style={styles.textTwoStyle}>Child #2</Text>
-      <Text style={styles.textThreeStyle}>Child #3</Text>
+    <View style={styles.parentStyle}>
+      <View style={styles.viewOneStyle} />
+      <View style={styles.viewTwoStyle} />
+      <View style={styles.viewThreeStyle} />
     </View>
   );
 };
 
+// TODO 2.kutuyu parent bir view ekleyerek (style: height:100, justifyContent: 'flex-end') yaparak hizlama yapilabilir. 
+// 3. yol ise parent view'i yukeseklik degeri ile oynanabilir
+
 const styles = StyleSheet.create({
-    viewStyle: {
-        borderWidth: 3,
-        borderColor: 'black',
-        height: 200,
-    },
-    textOneStyle: {
-        borderWidth: 3,
-        borderColor: 'red',
-    },
-    textTwoStyle: {
-        borderWidth: 3,
-        borderColor: 'red',
-        alignSelf: 'baseline'
-    },
-    textThreeStyle: {
-        borderWidth: 3,
-        borderColor: 'red',
-    }
+  parentStyle: {
+    borderWidth: 3,
+    borderColor: 'black',
+    height: 200,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  viewOneStyle: {
+    width: 50,
+    height: 50,
+    backgroundColor: 'red'  
+  },
+  viewTwoStyle: {
+    width: 50,
+    height: 50,
+    backgroundColor: 'green',
+    marginTop: 50
+  },
+  viewThreeStyle: {
+    width: 50,
+    height: 50,
+    backgroundColor:'purple'
+  },
 });
 
 export default BoxScreen;
